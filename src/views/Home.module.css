@@ -1,0 +1,15 @@
+.homeContainer {
+  margin: 0 auto;
+  padding: 2em;
+  max-width: 60vw;
+  text-align: center;
+}
+
+/* .mainContent {
+  display: flex;
+  flex-direction: row;
+} */
+
+img {
+  width: 100%;
+}

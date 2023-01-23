@@ -1,22 +1,24 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from './Header.module.css';
 
 export const Header = () => {
   return (
-    <div className={styles.headerContainer}>
-      {/*       <h3>Your navigation between sports and dish screen goes here</h3> */}
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/dishscreen">Menu</Link>
-        </li>
-        <li>
-          <Link to="/sportsscreen">Sports Selection</Link>
-        </li>
-      </ul>
-    </div>
+    <nav className='navbar navbar-expand-lg navbar-dark bg-primary'>
+      <div className='container-fluid'>
+        <h3 className='navbar-brand'>Pablo's Sportsbar</h3>
+        <div className='collapse navbar-collapse' id='navbarColor01'>
+          <ul className='navbar-nav me-auto'>
+            <li className='nav-item'>
+              <Link className='nav-link' to="/">Home</Link>
+            </li>
+            <li className='nav-item'>
+              <Link className='nav-link' to="/dishscreen">Menu</Link>
+            </li>
+            <li className='nav-item'>
+              <Link className='nav-link' to="/sportsscreen">Sports Selection</Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   );
 };

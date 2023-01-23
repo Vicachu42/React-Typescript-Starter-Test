@@ -2966,6 +2966,11 @@ boolbase@^1.0.0, boolbase@~1.0.0:
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   integrity sha1-aN/1++YMUes3cl6p4+0xDcwed24=
 
+bootswatch@^5.2.3:
+  version "5.2.3"
+  resolved "https://registry.yarnpkg.com/bootswatch/-/bootswatch-5.2.3.tgz#a12bef6ea1a54f1b5b55b472c11a846d1cb77239"
+  integrity sha512-tvnW15WoOY2sEp1uT1ITDQiJy2TekQa+K+Q28WDXibleIxsY0nAoC9IylbnUPD7Q5vkCIclOuBHLVBblJYYPSA==
+
 boxen@^5.0.0:
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/boxen/-/boxen-5.1.2.tgz#788cb686fc83c1f486dfa8a40c68fc2b831d2b50"
@@ -9916,7 +9921,7 @@ react-scripts@4.0.3:
     postcss-preset-env "6.7.0"
     postcss-safe-parser "5.0.2"
     prompts "2.4.0"
-    react-app-polyfill "^2.0.0"
+    react-app-polyfill "^3.0.0"
     react-dev-utils "^11.0.3"
     react-refresh "^0.8.3"
     resolve "1.18.1"

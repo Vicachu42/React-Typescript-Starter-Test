@@ -2,16 +2,18 @@ import React from 'react';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import './App.css';
+import 'bootswatch/dist/sketchy/bootstrap.min.css';
+
+/* import './App.css'; */
 import { Home } from './views/Home';
 import { DishScreen } from './screens/dish-screen/DishScreen';
 import { SportsScreen } from './screens/sports-screen/SportsScreen';
 
 export interface Items {
-  id?: Number
+  id?: number | null | undefined
   title: string
   description?: string
-  url?: string
+  url?: string | undefined
 }
 
 /* export interface Dishes {

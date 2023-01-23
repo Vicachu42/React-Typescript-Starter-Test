@@ -18,10 +18,10 @@ export const SportsScreen: React.FC<Props> = () => {
   }, [])
 
   return (
-    <div>
+    <>
       <Header />
       <h3>Hello from sports-screen</h3>
       <MenuCard items={sports} />
-    </div>
+    </>
   );
 };
