@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Header } from '../../components/layout/header/Header';
 import { Items } from '../../App'
-import MenuCard from '../../components/layout/menu-cards/MenuCard'
 import styles from './DishScreen.module.css';
 
 interface Props {
@@ -9,11 +8,11 @@ interface Props {
 }
 
 export const DishScreen: React.FC<Props> = () => {
-  const [dishes, setDishes] = useState([])
+  const [dishes, setDishes] = useState<any[]>([])
 
   useEffect(() => {
     getDishes()
-  }, [])
+  }, [dishes])
 
   function getDishes() {
     fetch('http://localhost:3000/dishes')
@@ -31,17 +30,39 @@ export const DishScreen: React.FC<Props> = () => {
     getDishes()
   }
 
-  // Add conditional formatting for if the fetch fails 
+  // Add conditional formatting for if the fetch fails or there is nothing to fetch
 
   return (
     <>
       <Header />
       <section className={styles.dishContainer}>
         <h2>Choose food</h2>
-        {dishes.length >= 0 ? (
-          <MenuCard items={dishes} deleteDishes={deleteDishes} />
+        {dishes.length >= 1 ? (
+          <article className='card mb-3'>
+            <h4 className='card-header'>Menu</h4>
+            {dishes?.map((dish) => (
+              <div key={dish.id} className='card-body'>
+                <button
+                  onClick={() => deleteDishes(dish.id)}
+                  type='button'
+                  className='btn btn-outline-danger'
+                >
+                  Delete
+                </button>
+                <h5 className='card-title'>{dish.title}</h5>
+                <p className='card-text'>{dish.description}</p>
+                <img
+                  src={process.env.PUBLIC_URL + dish.url}
+                  alt='menu-item'
+                  className='d-block user-select-none' />
+              </div>
+            ))}
+          </article>
         ) : (
-          <p>Hej</p>
+          <article className='alert alert-dismissible alert-warning'>
+            <h4 className="alert-heading">We're sorry</h4>
+            <p className="mb-0">There are currently no dishes to choose from. </p>
+          </article>
         )}
       </section>
     </>

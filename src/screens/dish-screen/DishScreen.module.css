@@ -3,3 +3,12 @@
   padding: 2em;
   max-width: 60vw;
 }
+
+img {
+  width: 75%;
+  margin-bottom: 1.5em;
+}
+
+button {
+  float: right;
+}

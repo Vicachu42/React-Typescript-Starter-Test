@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Header } from '../../components/layout/header/Header';
 import { Items } from '../../App';
-import MenuCard from '../../components/layout/menu-cards/MenuCard';
 import styles from './SportsScreen.module.css';
 
 interface Props {
@@ -9,11 +8,11 @@ interface Props {
 }
 
 export const SportsScreen: React.FC<Props> = () => {
-  const [sports, setSports] = useState([])
+  const [sports, setSports] = useState<any[]>([])
 
   useEffect(() => {
     getSports()
-  }, [])
+  }, [sports])
 
   function getSports() {
     fetch('http://localhost:3000/sports')
@@ -28,20 +27,41 @@ export const SportsScreen: React.FC<Props> = () => {
     })
       .then(response => response.json())
       .then(result => console.log(result))
+      .catch(err => console.log(err))
     getSports()
   }
-
-  // Add conditional formatting for if the fetch fails 
 
   return (
     <>
       <Header />
       <section className={styles.sportsContainer}>
         <h2>Choose sport</h2>
-        {sports.length >= 0 ? (
-          <MenuCard items={sports} deleteSports={deleteSports} />
+        {sports.length >= 1 ? (
+          <article className='card mb-3'>
+            <h4 className='card-header'>Menu</h4>
+            {sports?.map((sport) => (
+              <div key={sport.id} className='card-body'>
+                <button
+                  onClick={() => deleteSports(sport.id)}
+                  type='button'
+                  className='btn btn-outline-danger'
+                >
+                  Delete
+                </button>
+                <h5 className='card-title'>{sport.title}</h5>
+                <p className='card-text'>{sport.description}</p>
+                <img
+                  src={process.env.PUBLIC_URL + sport.url}
+                  alt='menu-item'
+                  className='d-block user-select-none' />
+              </div>
+            ))}
+          </article>
         ) : (
-          <p>Hej</p>
+          <article className='alert alert-dismissible alert-warning'>
+            <h4 className="alert-heading">We're sorry</h4>
+            <p className="mb-0">There are currently no sports to choose from.</p>
+          </article>
         )}
       </section>
     </>
