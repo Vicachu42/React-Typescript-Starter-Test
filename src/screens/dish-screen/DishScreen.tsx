@@ -8,7 +8,7 @@ interface Props {
 }
 
 export const DishScreen: React.FC<Props> = () => {
-  const [dishes, setDishes] = useState<any[]>([])
+  const [dishes, setDishes] = useState<Items[]>([])
 
   useEffect(() => {
     getDishes()
@@ -29,8 +29,6 @@ export const DishScreen: React.FC<Props> = () => {
       .then(result => console.log(result))
     getDishes()
   }
-
-  // Add conditional formatting for if the fetch fails or there is nothing to fetch
 
   return (
     <>
